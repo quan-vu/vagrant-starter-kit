@@ -27,15 +27,15 @@ Vagrant Starter Kit Command Line Tools. (comming soon...)
 - [x] elastic-setup.sh
 - [x] redis-setup.sh
 
-### Others
-
-- [x] supervisor-setup.sh
-
 ### Frameworks
 
 - [x] laravel-project-setup.sh
 - [ ] django-project-setup.sh
 - [ ] fastapi-project-setup.sh
+
+### Others
+
+- [x] supervisor-setup.sh
 
 ... and more
 
@@ -64,6 +64,3 @@ config.vm.provision "shell", path: ".vagrant-scripts/django-project-setup.sh"
 # Setup FastAPI project
 config.vm.provision "shell", path: ".vagrant-scripts/fastapi-project-setup.sh"
 ```
-
-
-
