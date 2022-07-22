@@ -63,28 +63,16 @@ Vagrant.configure("2") do |config|
   config.hostmanager.manage_host = true
   config.hostmanager.aliases = DOMAIN
 
-  # Setup
+  # Example for setup LEMP Stack (Nginx, PHP, MySQL) and Laravel project & React
+  config.vm.provision "shell", path: ".vagrant-scripts/webservers/nginx-setup.sh", args: [DOMAIN]
+  config.vm.provision "shell", path: ".vagrant-scripts/databases/mysql-setup.sh"
+  config.vm.provision "shell", path: ".vagrant-scripts/languages/php8.0-setup.sh"
+  config.vm.provision "shell", path: ".vagrant-scripts/supervisor/supervisor-setup.sh"
+  config.vm.provision "shell", path: ".vagrant-scripts/languages/nodejs-setup.sh", args: ['18']  # Nodejs v18.x
 
-  # Setup nginx
-  config.vm.provision "shell", path: ".vagrant-scripts/nginx.sh", args: [DOMAIN]
-
-  # Setup MySQL
-  # config.vm.provision "shell", path: ".vagrant-scripts/mysql-setup.sh"
-
-  # Setup Elastic Search
+  # Additions
   # config.vm.provision "shell", path: ".vagrant-scripts/elastic-setup.sh"
 
-  # Setup Supervisor
-  # config.vm.provision "shell", path: ".vagrant-scripts/supervisor-setup.sh"
-
-  # Final
-  # Setup Laravel project
-  # config.vm.provision "shell", path: ".vagrant-scripts/laravel-project-setup.sh"
-
-  # Setup Django project
-  # config.vm.provision "shell", path: ".vagrant-scripts/django-project-setup.sh"
-
-  # Setup FastAPI project
-  # config.vm.provision "shell", path: ".vagrant-scripts/fastapi-project-setup.sh"
-
+  # Final - Boostrap specific for project
+  config.vm.provision "shell", path: ".vagrant-scripts/project-setup.sh"
 end

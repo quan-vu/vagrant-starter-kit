@@ -64,3 +64,9 @@ config.vm.provision "shell", path: ".vagrant-scripts/django-project-setup.sh"
 # Setup FastAPI project
 config.vm.provision "shell", path: ".vagrant-scripts/fastapi-project-setup.sh"
 ```
+
+## Quickstart
+
+```bash
+make init
+```
