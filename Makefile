@@ -42,7 +42,6 @@ verify:
 	
 # Laravel
 create-laravel-project:
-	vagrant ssh -c "/vagrant/www"
-	vagrant ssh -c "composer create-project laravel/laravel"
-	vagrant ssh -c "php artisan key:generate"
-	
+	vagrant ssh -c "rm -rf /vagrant/www/*"
+	vagrant ssh -c "cd /vagrant/www && composer create-project laravel/laravel ."
+	vagrant ssh -c "cd /vagrant/www && php artisan key:generate"
